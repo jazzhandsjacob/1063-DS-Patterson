@@ -1,3 +1,10 @@
+//Jacob Patterson
+//Prof. Griffen
+//1/24/18
+//this program sorts a new list or insorts
+//already sorted linked list 
+
+
 #include <iostream>
 #include <ctime>
 
@@ -26,6 +33,7 @@ public:
 	intLinkedList() {
 		Head = NULL;
 	}
+	// inserts 
 	void frontSert(int x) {
 		//empty list case
 		if (!Head) {
@@ -40,7 +48,7 @@ public:
 			Head = T;
 		}
 	}
-
+	//finds the specified number in the linked list
 	node* Find(int key) {
 		node* temp = Head;
 		while (temp) {
@@ -51,7 +59,7 @@ public:
 		}
 		return NULL;
 	}
-
+	//finds and removes the specified number from the list
 	void Remove(int key) {
 		node* result = Find(key);
 		if (result) {
@@ -95,10 +103,10 @@ public:
 				T->next = T2->next;
 				T2->next = T;
 			}
-			
+
 		}
 	}
-
+	// prints the linked list
 	void print() {
 		node* p = Head;
 		while (p) {
@@ -122,7 +130,7 @@ int main() {
 	for (int i = 0; i<10; i++) {
 		mylist.orderedSert(rand() % 100);
 	}
-
+	//insorts the number six
 	mylist.orderedSert(6);
 
 	//print the list
