@@ -1,0 +1,3 @@
+g++ -c AVLTree.cpp
+g++ -o runit analyze_trees.cpp
+./runit

@@ -27,8 +27,8 @@ class avlTree {
 
 private:
 	node * root;
-	int total = 0, adjcount = 0, advcount = 0,
-		animalcount = 0, nouncount = 0, verbcount = 0;
+	int total, adjcount, advcount,
+		animalcount, nouncount, verbcount;
 
 
 	//************************************************************************
@@ -342,7 +342,7 @@ private:
 		return height(nodePtr->left)>height(nodePtr->right);
 	}
 
-	bool avlTree::rightHeavy(node *nodePtr)
+	bool rightHeavy(node *nodePtr)
 	{
 		return height(nodePtr->right)>height(nodePtr->left);
 
@@ -352,6 +352,7 @@ public:
 	
 	avlTree() {
 		root = NULL;
+		total = adjcount = advcount = animalcount = nouncount = verbcount = 0;
 	}
 
 	~avlTree() {
@@ -428,8 +429,10 @@ public:
 		node *nodePtr = root;
 		int count = 0;
 		while (nodePtr) {
+			cout<<nodePtr->value<<" "<<nodePtr->valtype<<endl;
 			if (nodePtr->value == word)
 			{
+				cout<<"its equal"<<endl;
 				total += count;
 				//checks what type of word it is then
 				// increments the aproprit counter
@@ -443,6 +446,7 @@ public:
 					nouncount++;
 				else if (nodePtr->valtype == "verb")
 					verbcount++;
+				return;
 			}
 			else if (word < nodePtr->value)
 			{
